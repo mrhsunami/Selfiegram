@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="ku5-Rl-ljX">
             <objects>
-                <viewController id="uc3-46-jid" sceneMemberID="viewController">
+                <viewController id="uc3-46-jid" customClass="ProfileViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g6q-tM-8Cn"/>
                         <viewControllerLayoutGuide type="bottom" id="hEb-TT-WJe"/>
@@ -20,24 +20,58 @@
                     <view key="view" contentMode="scaleToFill" id="Rqb-Xr-Hs1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-vB-9dR">
+                                <rect key="frame" x="63" y="358" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="uc3-46-jid" eventType="touchUpInside" id="3zH-YP-U7v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fl-de-5VX">
+                                <rect key="frame" x="146" y="380" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UOo-eC-z5h">
+                                <rect key="frame" x="67" y="110" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="7zm-ku-BWo"/>
+                                    <constraint firstAttribute="width" constant="180" id="Ow0-jj-ZkU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zCb-vB-9dR" firstAttribute="top" secondItem="UOo-eC-z5h" secondAttribute="bottom" constant="8" id="5tq-e1-ITX"/>
+                            <constraint firstItem="1fl-de-5VX" firstAttribute="centerX" secondItem="Rqb-Xr-Hs1" secondAttribute="centerX" id="9Mm-CU-Zv2"/>
+                            <constraint firstItem="UOo-eC-z5h" firstAttribute="leading" secondItem="zCb-vB-9dR" secondAttribute="trailing" constant="-50" id="AQ5-H9-4NY"/>
+                            <constraint firstItem="1fl-de-5VX" firstAttribute="top" secondItem="UOo-eC-z5h" secondAttribute="bottom" constant="30" id="Qnu-Np-qiz"/>
+                            <constraint firstItem="UOo-eC-z5h" firstAttribute="top" secondItem="g6q-tM-8Cn" secondAttribute="bottom" constant="46" id="el8-LG-30F"/>
+                            <constraint firstItem="UOo-eC-z5h" firstAttribute="centerX" secondItem="Rqb-Xr-Hs1" secondAttribute="centerX" id="sjV-Ml-IzA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wS6-bf-ROA"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="UOo-eC-z5h" id="SZz-qh-9wg"/>
+                        <outlet property="usernameLabel" destination="1fl-de-5VX" id="4bK-6y-k9m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVy-99-d1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1490.4000000000001" y="-211.84407796101951"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Feed Table View Controller-->
         <scene sceneID="DLF-Un-Ypc">
             <objects>
-                <tableViewController id="uEc-u4-MbM" sceneMemberID="viewController">
+                <tableViewController id="uEc-u4-MbM" customClass="FeedTableViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RpX-WK-zrW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zdl-aN-GLv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="zdl-aN-GLv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdl-aN-GLv" id="szB-8w-R3B">
@@ -102,9 +136,9 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="Tqz-2K-hIs" kind="relationship" relationship="viewControllers" id="eyD-eU-Mu0"/>
-                        <segue destination="t0s-lf-fi9" kind="relationship" relationship="viewControllers" id="JDk-kJ-rcT"/>
                         <segue destination="Ejh-tG-Wfn" kind="relationship" relationship="viewControllers" id="WG2-uL-FNR"/>
+                        <segue destination="t0s-lf-fi9" kind="relationship" relationship="viewControllers" id="JDk-kJ-rcT"/>
+                        <segue destination="Tqz-2K-hIs" kind="relationship" relationship="viewControllers" id="eyD-eU-Mu0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJr-Ez-mn0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -117,7 +151,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tqz-2K-hIs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="khK-eN-QwG"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9Em-tl-UI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Em-tl-UI0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +171,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ejh-tG-Wfn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News Feed" image="NewsFeed" id="veF-oC-wOz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BAl-Ba-de5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BAl-Ba-de5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +191,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t0s-lf-fi9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Activities" image="Activities" id="mj4-fU-VhB" userLabel="Activities"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hnt-b2-hrC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hnt-b2-hrC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -176,5 +210,6 @@
         <image name="Activities" width="25" height="25"/>
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="placeholder" width="256" height="256"/>
     </resources>
 </document>

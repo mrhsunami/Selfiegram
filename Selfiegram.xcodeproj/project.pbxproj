@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D87080CE1E6E34E500F0E8A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87080CD1E6E34E500F0E8A3 /* User.swift */; };
+		D87080D01E6E3BDC00F0E8A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87080CF1E6E3BDC00F0E8A3 /* Post.swift */; };
+		D87080D21E6E688700F0E8A3 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87080D11E6E688700F0E8A3 /* FeedTableViewController.swift */; };
+		D8C843A91E652FF000CF7B33 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C843A81E652FF000CF7B33 /* ProfileViewController.swift */; };
 		D8DB50381E5E897B00D38154 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB50371E5E897B00D38154 /* AppDelegate.swift */; };
 		D8DB503A1E5E897B00D38154 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB50391E5E897B00D38154 /* ViewController.swift */; };
 		D8DB503D1E5E897B00D38154 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DB503B1E5E897B00D38154 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D87080CD1E6E34E500F0E8A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D87080CF1E6E3BDC00F0E8A3 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D87080D11E6E688700F0E8A3 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		D8C843A81E652FF000CF7B33 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D8DB50341E5E897B00D38154 /* Selfiegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfiegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DB50371E5E897B00D38154 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8DB50391E5E897B00D38154 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 				D8DB50371E5E897B00D38154 /* AppDelegate.swift */,
 				D8DB50391E5E897B00D38154 /* ViewController.swift */,
 				D8DB503B1E5E897B00D38154 /* Main.storyboard */,
+				D8C843A81E652FF000CF7B33 /* ProfileViewController.swift */,
+				D87080CD1E6E34E500F0E8A3 /* User.swift */,
+				D87080D11E6E688700F0E8A3 /* FeedTableViewController.swift */,
+				D87080CF1E6E3BDC00F0E8A3 /* Post.swift */,
 				D8DB503E1E5E897B00D38154 /* Assets.xcassets */,
 				D8DB50401E5E897B00D38154 /* LaunchScreen.storyboard */,
 				D8DB50431E5E897B00D38154 /* Info.plist */,
@@ -259,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87080CE1E6E34E500F0E8A3 /* User.swift in Sources */,
+				D87080D21E6E688700F0E8A3 /* FeedTableViewController.swift in Sources */,
+				D8C843A91E652FF000CF7B33 /* ProfileViewController.swift in Sources */,
 				D8DB503A1E5E897B00D38154 /* ViewController.swift in Sources */,
 				D8DB50381E5E897B00D38154 /* AppDelegate.swift in Sources */,
+				D87080D01E6E3BDC00F0E8A3 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +519,7 @@
 				D8DB505E1E5E897B00D38154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8DB505F1E5E897B00D38154 /* Build configuration list for PBXNativeTarget "SelfiegramTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +528,7 @@
 				D8DB50611E5E897B00D38154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8DB50621E5E897B00D38154 /* Build configuration list for PBXNativeTarget "SelfiegramUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +537,7 @@
 				D8DB50641E5E897B00D38154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
