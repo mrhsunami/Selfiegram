@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -62,22 +63,56 @@
             </objects>
             <point key="canvasLocation" x="1490.4000000000001" y="-211.84407796101951"/>
         </scene>
-        <!--Feed Table View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="DLF-Un-Ypc">
             <objects>
-                <tableViewController id="uEc-u4-MbM" customClass="FeedTableViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RpX-WK-zrW">
+                <tableViewController id="uEc-u4-MbM" customClass="FeedViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="28" sectionFooterHeight="28" id="RpX-WK-zrW" userLabel="Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="zdl-aN-GLv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="320" id="zdl-aN-GLv" customClass="SelfieCell" customModule="Selfiegram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdl-aN-GLv" id="szB-8w-R3B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpV-4L-YUT">
+                                            <rect key="frame" x="8" y="8" width="359" height="250"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="250" id="LFu-fh-z8i"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oO-oV-8RT">
+                                            <rect key="frame" x="8" y="266" width="79" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-do-nSp">
+                                            <rect key="frame" x="8" y="295" width="75" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Bdc-do-nSp" firstAttribute="leading" secondItem="szB-8w-R3B" secondAttribute="leadingMargin" id="UrX-8K-H6a"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kpV-4L-YUT" secondAttribute="trailing" id="VA7-XR-dXm"/>
+                                        <constraint firstItem="5oO-oV-8RT" firstAttribute="top" secondItem="kpV-4L-YUT" secondAttribute="bottom" constant="8" id="f2n-i9-FhY"/>
+                                        <constraint firstItem="5oO-oV-8RT" firstAttribute="leading" secondItem="szB-8w-R3B" secondAttribute="leadingMargin" id="fqf-K3-gSZ"/>
+                                        <constraint firstItem="Bdc-do-nSp" firstAttribute="top" secondItem="5oO-oV-8RT" secondAttribute="bottom" constant="8" id="hsv-ES-NyN"/>
+                                        <constraint firstItem="kpV-4L-YUT" firstAttribute="leading" secondItem="szB-8w-R3B" secondAttribute="leadingMargin" id="npb-q8-b1A"/>
+                                        <constraint firstItem="kpV-4L-YUT" firstAttribute="top" secondItem="szB-8w-R3B" secondAttribute="topMargin" id="qky-5k-pog"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentLabel" destination="Bdc-do-nSp" id="yFX-L1-IcF"/>
+                                    <outlet property="selfieImageView" destination="kpV-4L-YUT" id="QT6-Um-BKS"/>
+                                    <outlet property="usernameLabel" destination="5oO-oV-8RT" id="pZl-N8-OVV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -85,7 +120,16 @@
                             <outlet property="delegate" destination="uEc-u4-MbM" id="bdH-B7-OWI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9wi-ci-rcq"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9wi-ci-rcq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="h8S-8o-dXC">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="uEc-u4-MbM" id="mjK-VE-5X0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KE-tq-Ulp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

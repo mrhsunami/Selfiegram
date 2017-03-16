@@ -6,6 +6,7 @@
 //  Copyright © 2017 Nathan Hsu. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        let configuration = ParseClientConfiguration { clientConfiguration in
+            clientConfiguration.applicationId = "e3136fca-7d73-420b-9bf1-63eaed288ee3"
+            clientConfiguration.server = "https://ios-van-pt-parse-server-1.herokuapp.com/parse"
+        }
+        Parse.initialize(with: configuration)
+        
         return true
     }
 
