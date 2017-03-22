@@ -8,29 +8,33 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class Post {
-    let image: UIImage
-    let user: User
-    let comment: String
+class Post: PFObject, PFSubclassing {
     
-    init(image : UIImage, user: User, comment: String) {
+    @NSManaged var image:PFFile
+    @NSManaged var user:PFUser
+    @NSManaged var comment:String
+
+//    let image: UIImage
+//    let user: User
+//    let comment: String
+    
+    static func parseClassName() -> String {
+        return "Post"
+    }
+    
+    convenience init(image:PFFile, user:PFUser, comment:String){
+        
+        self.init()
         self.image = image
         self.user = user
         self.comment = comment
-
-    }
-}
-
-
-class PostFlickr {
-    let imageURL: URL
-    let user: User
-    let comment: String
+        
+//    init(image : UIImage, user: User, comment: String) {
+//        self.image = image
+//        self.user = user
+//        self.comment = comment
     
-    init(imageURL: URL, user: User, comment: String) {
-        self.imageURL = imageURL
-        self.user = user
-        self.comment = comment
     }
 }

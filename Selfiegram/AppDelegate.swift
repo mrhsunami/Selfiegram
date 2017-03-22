@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientConfiguration.applicationId = "e3136fca-7d73-420b-9bf1-63eaed288ee3"
             clientConfiguration.server = "https://ios-van-pt-parse-server-1.herokuapp.com/parse"
         }
+        Post.registerSubclass()
         Parse.initialize(with: configuration)
         
         let testObject = PFObject(className: "TestObject")
@@ -48,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         })
         
+    
         return true
     }
 
