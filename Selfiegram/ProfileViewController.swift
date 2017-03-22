@@ -7,16 +7,31 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameLabel.text = "yourName"
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let user = PFUser.current() {
+            usernameLabel.text = user.username
+            if let imageFile = user["avatarImage"] as? PFFile {
+                imageFile.getDataInBackground(block: { (data,error) -> Void in
+                    if let imageData = data {
+                        self.profileImageView.image = UIImage(data: imageData)
+                    }
+                })
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,8 +90,19 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //    We are getting an image from the UIImagePickerControllerOriginalImage key in that dictionary
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
+            let imageData = UIImageJPEGRepresentation(image, 0.9)
+            let imageFile = PFFile(data: imageData!)
+            let user = PFUser.current()
+            
+            user?["avatarImage"] = imageFile!
+            user?.saveInBackground(block: { (success,error) -> Void in
+                if success {
+                    print("avatarImage successfully saved")
+                    let image = UIImage(data: imageData!)
+                    self.profileImageView.image = image
+                }
+            })
             //2. To our imageView, we set the image property to be the image the user has chosen
-            profileImageView.image = image
             
         }
         
