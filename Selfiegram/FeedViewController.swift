@@ -47,25 +47,12 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCell
         let post = self.posts[indexPath.row]
-        
-        // I've added this line to prevent flickering of images
-        // We are inside the cellForRowAtIndexPath method that gets called everytime we lay out a cell
-        // This always resets the image to blank, waits for the image to download, and then sets it
-        cell.selfieImageView.image = nil
-       
-        let imageFile = post.image
-        imageFile.getDataInBackground(block: {(data, error) -> Void in
-            if let data = data {
-                let image = UIImage(data: data)
-                cell.selfieImageView.image = image
-            }
-        })
-        
-        cell.usernameLabel.text = post.user.username
-        cell.commentLabel.text = post.comment
-        
+        cell.post = post
+               
         return cell
     }
+    
+    //http://ios-van-pt-parse-server-1.herokuapp.com/parse/files/e3136fca-7d73-420b-9bf1-63eaed288ee3/603b4d1132c9770b949a01c73299b3a3_file.bin
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
         let pickerController = UIImagePickerController()

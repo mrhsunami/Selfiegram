@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
@@ -23,13 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientConfiguration.server = "https://ios-van-pt-parse-server-1.herokuapp.com/parse"
         }
         Post.registerSubclass()
+        Activity.registerSubclass()
         Parse.initialize(with: configuration)
         
-        let testObject = PFObject(className: "TestObject")
-        testObject["foo"] = "bar"
-        testObject.saveInBackground(block: { (success: Bool, error: Error?) -> Void in
-            print("Object has been saved.")
-        })
+//        let testObject = PFObject(className: "TestObject")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackground(block: { (success: Bool, error: Error?) -> Void in
+//            print("Object has been saved.")
+//        })
         
         let user = PFUser()
         let username = "Nathan"

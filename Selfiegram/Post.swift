@@ -12,13 +12,16 @@ import Parse
 
 class Post: PFObject, PFSubclassing {
     
+    var likes: PFRelation<PFObject>! {
+        // PFRelations are a bit different from just a regular properties
+        // This is called a “computed property”, because it’s value is computed every time instead of stored.
+        // The line below specifies that our relation column on Parse should be called “likes”
+        return relation(forKey: "likes")
+    }
+
     @NSManaged var image:PFFile
     @NSManaged var user:PFUser
     @NSManaged var comment:String
-
-//    let image: UIImage
-//    let user: User
-//    let comment: String
     
     static func parseClassName() -> String {
         return "Post"
@@ -30,11 +33,6 @@ class Post: PFObject, PFSubclassing {
         self.image = image
         self.user = user
         self.comment = comment
-        
-//    init(image : UIImage, user: User, comment: String) {
-//        self.image = image
-//        self.user = user
-//        self.comment = comment
     
     }
 }

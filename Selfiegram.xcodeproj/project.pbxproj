@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6DC00942C833084C6AA5224E /* Pods_SelfiegramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F27BA2DA0E450B1627A8005 /* Pods_SelfiegramUITests.framework */; };
 		9E013215FD4C05ADE3552525 /* Pods_SelfiegramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6442B5C2906E5F9EF989777B /* Pods_SelfiegramTests.framework */; };
+		D81563CD1E83485400154C5B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81563CC1E83485400154C5B /* Activity.swift */; };
 		D859C5AD1E71129D00A8905F /* SelfieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D859C5AC1E71129D00A8905F /* SelfieCell.swift */; };
 		D87080CE1E6E34E500F0E8A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87080CD1E6E34E500F0E8A3 /* User.swift */; };
 		D87080D01E6E3BDC00F0E8A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87080CF1E6E3BDC00F0E8A3 /* Post.swift */; };
@@ -51,6 +52,7 @@
 		A0733ED5D7595E57AF733C3A /* Pods_Selfiegram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Selfiegram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D4A43A7E2D3C561135C753 /* Pods-Selfiegram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Selfiegram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Selfiegram/Pods-Selfiegram.debug.xcconfig"; sourceTree = "<group>"; };
 		CE5B3B4F15820A7294169F34 /* Pods-SelfiegramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfiegramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelfiegramUITests/Pods-SelfiegramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D81563CC1E83485400154C5B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D859C5AC1E71129D00A8905F /* SelfieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieCell.swift; sourceTree = "<group>"; };
 		D87080CD1E6E34E500F0E8A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87080CF1E6E3BDC00F0E8A3 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				D8DB503B1E5E897B00D38154 /* Main.storyboard */,
 				D8C843A81E652FF000CF7B33 /* ProfileViewController.swift */,
 				D87080CD1E6E34E500F0E8A3 /* User.swift */,
+				D81563CC1E83485400154C5B /* Activity.swift */,
 				D87080D11E6E688700F0E8A3 /* FeedViewController.swift */,
 				D859C5AC1E71129D00A8905F /* SelfieCell.swift */,
 				D87080CF1E6E3BDC00F0E8A3 /* Post.swift */,
@@ -468,6 +471,7 @@
 				D8C843A91E652FF000CF7B33 /* ProfileViewController.swift in Sources */,
 				D8DB503A1E5E897B00D38154 /* ViewController.swift in Sources */,
 				D8DB50381E5E897B00D38154 /* AppDelegate.swift in Sources */,
+				D81563CD1E83485400154C5B /* Activity.swift in Sources */,
 				D87080D01E6E3BDC00F0E8A3 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

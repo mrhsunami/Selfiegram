@@ -76,7 +76,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdl-aN-GLv" id="szB-8w-R3B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpV-4L-YUT">
@@ -97,8 +97,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZo-E2-UZ2">
+                                            <rect key="frame" x="344" y="266" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="ixU-Jh-1vk"/>
+                                                <constraint firstAttribute="width" constant="23" id="yJR-32-Pv0"/>
+                                            </constraints>
+                                            <state key="normal" image="hearts-off"/>
+                                            <state key="selected" image="hearts-on"/>
+                                            <connections>
+                                                <action selector="likeButtonClicked:" destination="zdl-aN-GLv" eventType="touchUpInside" id="n79-oL-xD3"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="pZo-E2-UZ2" firstAttribute="top" secondItem="kpV-4L-YUT" secondAttribute="bottom" constant="8" id="3NX-jB-lYg"/>
+                                        <constraint firstAttribute="trailing" secondItem="pZo-E2-UZ2" secondAttribute="trailing" constant="8" id="6oe-QQ-krP"/>
                                         <constraint firstItem="Bdc-do-nSp" firstAttribute="leading" secondItem="szB-8w-R3B" secondAttribute="leadingMargin" id="UrX-8K-H6a"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="kpV-4L-YUT" secondAttribute="trailing" id="VA7-XR-dXm"/>
                                         <constraint firstItem="5oO-oV-8RT" firstAttribute="top" secondItem="kpV-4L-YUT" secondAttribute="bottom" constant="8" id="f2n-i9-FhY"/>
@@ -110,6 +124,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="Bdc-do-nSp" id="yFX-L1-IcF"/>
+                                    <outlet property="likeButton" destination="pZo-E2-UZ2" id="e17-Jx-lGs"/>
                                     <outlet property="selfieImageView" destination="kpV-4L-YUT" id="QT6-Um-BKS"/>
                                     <outlet property="usernameLabel" destination="5oO-oV-8RT" id="pZl-N8-OVV"/>
                                 </connections>
@@ -148,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OkF-VP-u7t" id="kA6-FM-gPp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -254,6 +269,8 @@
         <image name="Activities" width="25" height="25"/>
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="hearts-off" width="42" height="37"/>
+        <image name="hearts-on" width="42" height="37"/>
         <image name="placeholder" width="256" height="256"/>
     </resources>
 </document>
