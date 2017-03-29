@@ -13,9 +13,7 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
 
     var posts = [Post]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func getPosts() {
         if let query = Post.query() {
             query.order(byDescending: "createdAt")
             query.includeKey("user")
@@ -27,37 +25,32 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
                 // this block of code will run when the query is complete
             })
         }
-    
-    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    @IBAction func refreshPulled(_ sender: UIRefreshControl) {
+        getPosts()
+        sender.endRefreshing()
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
+    @IBAction func doubleTappedSelfie(_ sender: UITapGestureRecognizer) {
+        print("double tapped selfie")
+        // get the location (x,y) position on our tableView where we have clicked
+        let tapLocation = sender.location(in: tableView)
+        
+        // based on the x, y position we can get the indexPath for where we are at
+        if let indexPathAtTapLocation = tableView.indexPathForRow(at: tapLocation){
+            
+            // based on the indexPath we can get the specific cell that is being tapped
+            let cell = tableView.cellForRow(at: indexPathAtTapLocation) as! SelfieCell
+            
+            //run a method on that cell.
+            cell.tapAnimation()
+        }
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCell
-        let post = self.posts[indexPath.row]
-        cell.post = post
-               
-        return cell
-    }
-    
-    //http://ios-van-pt-parse-server-1.herokuapp.com/parse/files/e3136fca-7d73-420b-9bf1-63eaed288ee3/603b4d1132c9770b949a01c73299b3a3_file.bin
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        
         if TARGET_OS_SIMULATOR == 1 {
             pickerController.sourceType = .photoLibrary
         } else {
@@ -67,7 +60,7 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
         }
         self.present(pickerController, animated: true, completion: nil)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // 1. When the delegate method is returned, it passes along a dictionary called info.
@@ -75,7 +68,7 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
         //    We are getting an image from the UIImagePickerControllerOriginalImage key in that dictionary
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-        //2. We create a Post object from the image
+            //2. We create a Post object from the image
             if let imageData = UIImageJPEGRepresentation(image, 0.9),
                 let imageFile = PFFile(data: imageData),
                 let user = PFUser.current(){
@@ -100,17 +93,44 @@ class FeedViewController: UITableViewController,UIImagePickerControllerDelegate,
                     }
                 })
             }
-        
+            
         }
         //3. We remember to dismiss the Image Picker from our screen.
         dismiss(animated: true, completion: nil)
         
         tableView.reloadData()
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("User clicked cancel")
         dismiss(animated: true, completion: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getPosts()
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.posts.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCell
+        let post = self.posts[indexPath.row]
+        cell.post = post
+        return cell
+    }
+
     
     
     /*

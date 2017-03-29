@@ -22,6 +22,8 @@
 		D8DB50421E5E897B00D38154 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DB50401E5E897B00D38154 /* LaunchScreen.storyboard */; };
 		D8DB504D1E5E897B00D38154 /* SelfiegramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB504C1E5E897B00D38154 /* SelfiegramTests.swift */; };
 		D8DB50581E5E897B00D38154 /* SelfiegramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB50571E5E897B00D38154 /* SelfiegramUITests.swift */; };
+		D8E054B21E8A02D400F56C27 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054B11E8A02D400F56C27 /* ActivityViewController.swift */; };
+		D8E054B41E8A0F3B00F56C27 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054B31E8A0F3B00F56C27 /* ActivityCell.swift */; };
 		D9E021E0BFCED5B515CDE0DF /* Pods_Selfiegram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0733ED5D7595E57AF733C3A /* Pods_Selfiegram.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		D8DB50531E5E897B00D38154 /* SelfiegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DB50571E5E897B00D38154 /* SelfiegramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiegramUITests.swift; sourceTree = "<group>"; };
 		D8DB50591E5E897B00D38154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8E054B11E8A02D400F56C27 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		D8E054B31E8A0F3B00F56C27 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				D8DB50371E5E897B00D38154 /* AppDelegate.swift */,
 				D8DB50391E5E897B00D38154 /* ViewController.swift */,
 				D8DB503B1E5E897B00D38154 /* Main.storyboard */,
+				D8E054B11E8A02D400F56C27 /* ActivityViewController.swift */,
+				D8E054B31E8A0F3B00F56C27 /* ActivityCell.swift */,
 				D8C843A81E652FF000CF7B33 /* ProfileViewController.swift */,
 				D87080CD1E6E34E500F0E8A3 /* User.swift */,
 				D81563CC1E83485400154C5B /* Activity.swift */,
@@ -467,8 +473,10 @@
 			files = (
 				D859C5AD1E71129D00A8905F /* SelfieCell.swift in Sources */,
 				D87080CE1E6E34E500F0E8A3 /* User.swift in Sources */,
+				D8E054B41E8A0F3B00F56C27 /* ActivityCell.swift in Sources */,
 				D87080D21E6E688700F0E8A3 /* FeedViewController.swift in Sources */,
 				D8C843A91E652FF000CF7B33 /* ProfileViewController.swift in Sources */,
+				D8E054B21E8A02D400F56C27 /* ActivityViewController.swift in Sources */,
 				D8DB503A1E5E897B00D38154 /* ViewController.swift in Sources */,
 				D8DB50381E5E897B00D38154 /* AppDelegate.swift in Sources */,
 				D81563CD1E83485400154C5B /* Activity.swift in Sources */,
